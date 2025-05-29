@@ -11,7 +11,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                /*.antMatchers("/","/login**").permitAll()*/
+                .antMatchers("/token","/login**").permitAll()
                 .anyRequest().authenticated()
                 .and().oauth2Login();
         return http.build();
