@@ -1,5 +1,6 @@
 package com.example.project.interfaces.facade;
 
+import com.example.project.domain.entity.AccessTokenBO;
 import com.example.project.interfaces.dto.AccessTokenResDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,12 +22,13 @@ public class GitHubFacade {
     @GetMapping("/token")
     public String getToken(@RequestParam("code") String code) {
         RestTemplate restTemplate = new RestTemplate();
-        String tokenUrl = "https://github.com/login/oauth/access_token"+
-                "?client_id=Ov23lisJxDXXUDdRpi9y"+
-                "&client_secret=18a72bd1f8111ad225f84f2e38934a7465216fcf"+
-                "&code="+code;
-        System.out.println(tokenUrl);
-        AccessTokenResDTO accessTokenResDTO = restTemplate.postForObject(tokenUrl,null,AccessTokenResDTO.class);
+        String tokenUrl = "https://github.com/login/oauth/access_token";
+        AccessTokenBO accessTokenBO = new AccessTokenBO();
+        accessTokenBO.setClientId("Ov23lisJxDXXUDdRpi9y");
+        accessTokenBO.setClientSecret("18a72bd1f8111ad225f84f2e38934a7465216fcf");
+        accessTokenBO.setCode(code);
+
+        AccessTokenResDTO accessTokenResDTO = restTemplate.postForObject(tokenUrl,accessTokenBO,AccessTokenResDTO.class);
         assert accessTokenResDTO != null;
         return accessTokenResDTO.getAccessToken();
     }
