@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class GitHubFacade {
     private final OAuth2AuthorizedClientService authorizedClientService;
-    @Value("spring.security.oauth2.client.registration.github.client.id")
-    private String clientId;
-    @Value("spring.security.oauth2.client.registration.github.client.secret")
-    private String clientSecret;
     @GetMapping("/")
     public String homePage(){
         return "Authorize successfully!";
@@ -26,9 +22,10 @@ public class GitHubFacade {
     public String getToken(@RequestParam("code") String code) {
         RestTemplate restTemplate = new RestTemplate();
         String tokenUrl = "https://github.com/login/oauth/access_token"+
-                "?client_id="+clientId+
-                "&client_secret="+clientSecret+
+                "?client_id=Ov23lisJxDXXUDdRpi9y"+
+                "&client_secret=18a72bd1f8111ad225f84f2e38934a7465216fcf"+
                 "&code="+code;
+        System.out.println(tokenUrl);
         AccessTokenResDTO accessTokenResDTO = restTemplate.postForObject(tokenUrl,null,AccessTokenResDTO.class);
         assert accessTokenResDTO != null;
         return accessTokenResDTO.getAccessToken();
