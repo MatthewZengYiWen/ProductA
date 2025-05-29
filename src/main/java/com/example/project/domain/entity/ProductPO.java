@@ -1,7 +1,9 @@
 package com.example.project.domain.entity;
 
-import jakarta.persistence.*;
+
 import lombok.Data;
+
+import javax.persistence.*;
 
 @Table(name="product")  //指定对应数据库对应的表名
 @Entity    //标记这是一个实体类

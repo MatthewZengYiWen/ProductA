@@ -1,6 +1,5 @@
 package com.example.project.interfaces.dto;
 
-import jakarta.persistence.Column;
 import lombok.Data;
 
 @Data

@@ -10,17 +10,10 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/", "/login").permitAll()  // 公开路径
-                        .anyRequest().authenticated()                // 其他请求需要认证
-                )
-                .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl("/home")                  // 登录成功后跳转
-                )
-                .logout(logout -> logout
-                        .logoutSuccessUrl("/"));                     // 注销后跳转
-
+        http.authorizeHttpRequests()
+                /*.antMatchers("/","/login**").permitAll()*/
+                .anyRequest().authenticated()
+                .and().oauth2Login();
         return http.build();
     }
 }

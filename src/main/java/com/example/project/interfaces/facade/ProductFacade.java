@@ -6,7 +6,6 @@ import com.example.project.domain.repository.ProductRepository;
 import com.example.project.interfaces.assembler.ProductAssembler;
 import com.example.project.interfaces.dto.ProductDTO;
 import com.mysql.cj.x.protobuf.MysqlxCrud;
-import jakarta.persistence.criteria.Order;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

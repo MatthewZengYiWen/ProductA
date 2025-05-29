@@ -17,7 +17,7 @@ public class GitHubFacade {
     private String clientId;
     @Value("spring.security.oauth2.client.registration.github.client.secret")
     private String clientSecret;
-    @GetMapping("/home")
+    @GetMapping("/")
     public String homePage(){
         return "Authorize successfully!";
     }
