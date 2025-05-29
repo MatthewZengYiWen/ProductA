@@ -1,0 +1,11 @@
+
+--CREATE TABLE `product`  (
+  --`id` bigint(19) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  --`product_no` varchar(64) NOT NULL COMMENT 'product no',
+  --`product_name` varchar(64) NOT NULL COMMENT 'product name',
+  --`product_price` int(64) NOT NULL COMMENT 'price',
+  --`create_time` varchar(64) NOT NULL COMMENT 'time',
+  --`create_user` varchar(64) NOT NULL COMMENT 'user',
+  --PRIMARY KEY (`id`) USING BTREE,
+  --UNIQUE INDEX `product_no`(`product_no`) USING BTREE
+--) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '打印机-状态' ROW_FORMAT = Dynamic;

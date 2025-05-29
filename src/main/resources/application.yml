@@ -1,0 +1,43 @@
+server:
+  port: 8090
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23lisJxDXXUDdRpi9y
+            client-secret: 18a72bd1f8111ad225f84f2e38934a7465216fcf
+            scope: user:email,read:user
+        provider:
+          github:
+            authorization-uri: https://github.com/login/oauth/authorize
+            token-uri: https://github.com/login/oauth/access_token
+            user-info-uri: https://api.github.com/user
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  datasource:
+    driverClassName: org.mariadb.jdbc.Driver
+    initialization-mode: always
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mariadb://81.69.195.111:23306/dxz?serverTimezone=GMT%2B8&autoReconnect=true&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: bmV2eih*N3b2hlcmUK
+    #    schema: classpath:form-schema.sql
+    #    data: classpath:form-data.sql
+    hikari:
+      connection-timeout: 60000
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
+      connection-test-query: SELECT 1
+      validation-timeout: 3000
+      read-only: false
+      login-timeout: 5
