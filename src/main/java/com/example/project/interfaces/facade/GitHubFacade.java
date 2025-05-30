@@ -14,10 +14,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class GitHubFacade {
     private final OAuth2AuthorizedClientService authorizedClientService;
-    @GetMapping("/")
-    public String homePage(){
-        return "Authorize successfully!";
-    }
     // 获取 GitHub Access Token
     @GetMapping("/token")
     public String getToken(@RequestParam("code") String code) {
